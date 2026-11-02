@@ -96,7 +96,6 @@ export function Summary({ selectedExpenseIds }: SummaryProps) {
             >
               <span className="flex-1 text-ink">
                 {nameOf(t.from)}{' '}
-                {/* text-accent arrow matches the mockup's purple directional indicator */}
                 <span className="font-bold text-accent">→</span>{' '}
                 {nameOf(t.to)}
               </span>

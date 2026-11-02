@@ -2,17 +2,21 @@
 
 Split shared group expenses and see who owes whom.
 
+> This repo is a copy of [NagareNegishi/expense-splitter](https://github.com/NagareNegishi/expense-splitter), a timed build: planning, design, code and tests all came in under 4 hours. The full commit history is kept, so the timestamps show it. Since the deadline the only changes are cleanup (assessment-specific text and unused files removed) and hosting.
+
 ---
 
 ## Setup
 
-Requires Node 24. If you don't have it, the easiest path is to open the repo in VS Code with the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension — it builds the right environment automatically. Otherwise, install Node 24 from [nodejs.org](https://nodejs.org).
+Requires Node 20.19 or newer (22.12+ also works). Node 24 is what it was built and tested on, and what `.nvmrc` pins. If you don't have a suitable version, install one from [nodejs.org](https://nodejs.org).
 
 ```bash
 npm install
 npm run dev      # serves at http://localhost:5173
 npm test         # runs the settlement tests
 ```
+
+`.devcontainer/` is the dev environment only. The app runs with plain `npm install && npm run dev`.
 
 ---
 

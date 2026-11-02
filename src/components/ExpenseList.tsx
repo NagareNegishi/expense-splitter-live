@@ -121,7 +121,6 @@ function ExpenseForm({ people, initial, submitLabel, onSubmit, onCancel }: Expen
     onSubmit({ ...form, participants: new Set([...form.participants].filter(id => validIds.has(id))) })
   }
 
-  // label style: uppercase micro-text matching the mockup section headers
   const labelClass = 'mb-1 block text-[0.72rem] font-semibold uppercase tracking-[0.05em] text-muted'
   const inputClass =
     'w-full rounded-[9px] border border-line px-[11px] py-[9px] text-ink placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent'
@@ -177,7 +176,6 @@ function ExpenseForm({ people, initial, submitLabel, onSubmit, onCancel }: Expen
         <label className={labelClass}>Shared by</label>
         <div className="flex flex-wrap gap-2">
           {people.map(p => (
-            // chip.on style: purple tint when checked, matches mockup palette
             <label
               key={p.id}
               className={`inline-flex cursor-pointer items-center gap-[6px] rounded-full border px-[11px] py-[5px] text-[0.85rem] ${

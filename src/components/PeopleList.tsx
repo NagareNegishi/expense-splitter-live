@@ -69,9 +69,7 @@ export function PeopleList() {
 
   return (
     <>
-      {/* rounded-[14px]: matches the --radius token from the layout mockup */}
       <section className="mb-4 rounded-[14px] border border-line bg-white p-5">
-        {/* uppercase tracking-[0.08em]: section label style from mockup */}
         <h2 className="mb-3 mt-0 border-l-[3px] border-accent pl-3 text-[0.9rem] font-semibold text-ink">
           People
         </h2>

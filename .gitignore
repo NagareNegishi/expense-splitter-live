@@ -29,3 +29,7 @@ dist-ssr
 
 # Private planning notes
 rapid-prototypes-plan.md
+
+# Environment files
+.env
+.env.*
