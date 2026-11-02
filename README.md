@@ -49,4 +49,3 @@ The settle-up list uses a greedy algorithm: match the largest creditor against t
 ## See also
 
 - `docs/DECISIONS.md` — decision log and full reasoning for every choice above.
-- Written answers submitted separately.

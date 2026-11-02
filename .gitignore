@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code local settings
+.claude/settings.local.json
+.claude/skills/
+
+# Private planning notes
+rapid-prototypes-plan.md

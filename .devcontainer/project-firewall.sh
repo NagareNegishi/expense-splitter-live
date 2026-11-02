@@ -67,11 +67,11 @@ done < <(echo "$gh_ranges" | jq -r '(.web + .api + .git)[]' | aggregate -q)
 # Resolve and add other allowed domains
 # registry.npmjs.org — essential for npm installs
 # api.anthropic.com — essential for Claude Code to function
-# Other 3 are for VS Code extension marketplace access
+# api.osv.dev — vulnerability lookups
+# The last 3 are for VS Code extension marketplace access
 for domain in \
     "registry.npmjs.org" \
     "api.anthropic.com" \
-    "ui.shadcn.com" \
     "api.osv.dev" \
     "marketplace.visualstudio.com" \
     "vscode.blob.core.windows.net" \

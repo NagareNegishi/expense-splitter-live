@@ -1,6 +1,6 @@
 # Expense Splitter: Decision Log
 
-Build a small frontend web app where a group adds people and shared expenses, and the app shows who owes whom so they can settle up. The heart of the task is computing balances correctly and keeping that logic separate from the UI, unit-testable on its own.
+A small frontend web app where a group adds people and shared expenses, and the app shows who owes whom so they can settle up. The core of it is computing balances correctly and keeping that logic separate from the UI, unit-testable on its own.
 
 ## Decisions
 
@@ -49,7 +49,7 @@ State resets on refresh, a deliberate choice noted in the README. localStorage i
 
 ### 8. Dev environment: existing full-stack container, trimmed to frontend
 
-Reused from a working .NET + Postgres + React project, cut to frontend-only. Runs Claude Code in a sandbox with an egress firewall. It is the dev environment, not a requirement for running the app. The README run steps stay plain `npm install && npm run dev`, so a reviewer never opens the container.
+Reused from a working .NET + Postgres + React project, cut to frontend-only. Runs Claude Code in a sandbox with an egress firewall. It is the dev environment, not a requirement for running the app. The README run steps stay plain `npm install && npm run dev`, so nobody has to open the container to run the app.
 
 Two structural decisions:
 
@@ -102,7 +102,7 @@ Removal rule: a person can be removed only if no expense references them as `pai
 
 ### 10. Settlement logic: integer-cents rounding, then a two-stage algorithm
 
-The graded heart of the task.
+The core of the app.
 
 Rounding, per expense. Shares are never rounded independently. That breaks conservation: $10.00 split three ways, each rounded up, gives $3.34 × 3 = $10.02, money from nowhere. Instead: `base = floor(amountCents / k)` for `k` participants, then `remainder = amountCents - base * k` leftover cents are handed out one each, so shares always sum back to the exact amount. Leftover cents go to non-payers first, so the payer is never made worse off by a rounding cent. $10.00 across three: 334 / 333 / 333 = 1000.
 
@@ -134,8 +134,6 @@ Components: `PeopleList`, `ExpenseList`, and the summary view, all reading and d
 
 ### 12. Shipping: Node-only runtime, git repo, devcontainer dev-only
 
-Runtime: the only thing a reviewer needs is Node. Run path is plain `npm install && npm run dev`. A Node version is pinned (`.nvmrc` plus `engines`) to Vite's current minimum or above, so a clean-machine install doesn't fail on an unexpected version.
+Runtime: the only thing needed is Node. Run path is plain `npm install && npm run dev`. A Node version is pinned (`.nvmrc` plus `engines`) to Vite's current minimum or above, so a clean-machine install doesn't fail on an unexpected version.
 
-Delivery: a git repo link, not a zip. History and committed skills are the AI-workflow evidence. Ships fresh, no commits or secrets from the original .NET project.
-
-Devcontainer: `.devcontainer/` stays in the repo as evidence for the AI-workflow answer but isn't needed to run the app. The README says in one line that it's the dev environment and the run path is plain npm.
+Devcontainer: `.devcontainer/` stays in the repo as the dev environment but isn't needed to run the app. The README says in one line that it's dev-only and the run path is plain npm.

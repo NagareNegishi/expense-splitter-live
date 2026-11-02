@@ -1,11 +1,11 @@
 # CLAUDE.md
 
-Expense Splitter — a frontend web app where a group adds people and shared expenses and sees who owes whom. Building from an empty repo.
+Expense Splitter — a frontend web app where a group adds people and shared expenses and sees who owes whom.
 
 ## Read first
 
 - `docs/DECISIONS.md` — the authority for every decision: stack, data model, settlement algorithm, UX, shipping. Section numbers (§) are cited below; read the relevant section before implementing that part.
-- `docs/layout-mockup.html` — static visual reference for layout, the expense sub-line format (`Alice paid · split Alice, Bob, Carol`), and owed/owes colors (green = owed, red = owes). Take the layout and palette intent, **not** the CSS — the app is React + Tailwind, not vanilla CSS. Its Alice/Bob/Carol example (nets +$17.00 / −$5.50 / −$11.50) is a correct end-to-end integration fixture.
+- UI conventions: the expense sub-line format is `Alice paid · split Alice, Bob, Carol`; owed is green, owes is red. The Alice/Bob/Carol example (Alice $30 dinner for all three, Bob $15 taxi for Bob and Carol, Carol $9 coffee for all three; nets +$17.00 / −$5.50 / −$11.50) is a correct end-to-end integration fixture.
 
 ## Guardrails — do not get these wrong
 
@@ -22,7 +22,7 @@ Expense Splitter — a frontend web app where a group adds people and shared exp
 
 1. `lib/settlement.ts` and its tests (the seven §10 edge cases). (§5, §10)
 2. Reducer and Context (`{ people, expenses }`, pure reducer, discriminated-union actions). (§6)
-3. UI: `PeopleList`, `ExpenseList` (plus the add-expense form — the one non-trivial component), summary view. Match `layout-mockup.html`. (§11)
+3. UI: `PeopleList`, `ExpenseList` (plus the add-expense form — the one non-trivial component), summary view. (§11)
 4. Stretch, only if the above is done: localStorage persistence. (§7)
 
 ## Run path and environment
