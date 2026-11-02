@@ -2,6 +2,8 @@
 
 Split shared group expenses and see who owes whom.
 
+Live: <https://nagarenegishi.com/expense-splitter-live/>
+
 > This repo is a copy of [NagareNegishi/expense-splitter](https://github.com/NagareNegishi/expense-splitter), a timed build: planning, design, code and tests all came in under 4 hours. The full commit history is kept, so the timestamps show it. Since the deadline the only changes are cleanup (assessment-specific text and unused files removed) and hosting.
 
 ---
